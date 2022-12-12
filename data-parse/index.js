@@ -17,6 +17,11 @@ const json = require('./blhs');
         return e;
     })));
 
+    asyncRes.map((s, i) => {
+    s.id = i+1;
+    return s;
+   }); 
+
     parseToCSV(asyncRes);
 })();
 
