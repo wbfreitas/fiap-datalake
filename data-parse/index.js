@@ -4,18 +4,18 @@ const fs = require('fs');
 const BLHs = require('./blhs');
 const nomes = require('./nomes');
 const estados = require('./estados');
-const multiplicador = 10;
+const multiplicador = 20;
 
 
 let doadoras = nomes.slice(0, (nomes.length -1));
 let donatarias = nomes.slice(((nomes.length - 1) /2 ) + 1, nomes.length -1);
 
-doadoras = new Array(1000).fill(doadoras).reduce((obj, d) => {
+doadoras = new Array(multiplicador).fill(doadoras).reduce((obj, d) => {
     obj.push(...d);
     return obj
 }, []).map((d, i) => d + ' ' + i);
 
-donatarias = new Array(1000).fill(donatarias).reduce((obj, d) => {
+donatarias = new Array(multiplicador).fill(donatarias).reduce((obj, d) => {
     obj.push(...d);
     return obj
 }, []).map((d, i) => d + ' ' + i);
