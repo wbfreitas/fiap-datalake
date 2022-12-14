@@ -35,7 +35,7 @@ MERGE (doadora)-[:DOA]->(destino);
 
 #Ligando donatarias e BLHs
 WITH "https://raw.githubusercontent.com/wbfreitas/fiap-datalake/main/csv-data/" AS base
-WITH base + "doadoras.csv" AS uri
+WITH base + "donatarias-blhs.csv" AS uri
 LOAD CSV WITH HEADERS FROM uri AS row
 MATCH(origem:BLHs {id: row.blh})
 MATCH(destino:DONATARIAS {nome: row.nome})
