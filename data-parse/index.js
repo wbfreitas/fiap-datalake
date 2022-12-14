@@ -11,14 +11,16 @@ let doadoras = nomes.slice(0, (nomes.length -1));
 let donatarias = nomes.slice(((nomes.length - 1) /2 ) + 1, nomes.length -1);
 
 doadoras = new Array(1000).fill(doadoras).reduce((obj, d) => {
-    obj.push(...d);
+    const r = d.map((d, i) => d + ' ' + i);
+    obj.push(...r);
     return obj
-}, []).map((d, i) => d + ' ' + 1);
+}, []);
 
 donatarias = new Array(1000).fill(donatarias).reduce((obj, d) => {
-    obj.push(...d);
+    const r = d.map((d, i) => d + ' ' + i);
+    obj.push(...r);
     return obj
-}, []).map((d, i) => d + ' ' + 1);
+}, []);
 
 const BLHsNomeID = BLHs.map((b, i) => ({id: i, nome: b.nome}));
 const doadorasBLHs = linkPessoasBLH(doadoras);
