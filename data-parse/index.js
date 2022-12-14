@@ -1,24 +1,15 @@
 const { Parser } = require('json2csv');
 const fs = require('fs');
 
-const BLHs = require('./blhs');
+const BLHs = require('./blhs').sort(() => (Math.random() > .5) ? 1 : -1).slice(20);
 const nomes = require('./nomes');
 const estados = require('./estados');
-const multiplicador = 1;
 
 
-let doadoras = nomes.slice(0, (nomes.length -1));
-let donatarias = nomes.slice(((nomes.length - 1) /2 ) + 1, nomes.length -1);
 
-// doadoras = new Array(multiplicador).fill(doadoras).reduce((obj, d) => {
-//     obj.push(...d);
-//     return obj
-// }, []).map((d, i) => d + ' ' + i);
+const doadoras = nomes.slice(0, (nomes.length -1)).slice(0, 90);
+const donatarias = nomes.slice(((nomes.length - 1) /2 ) + 1, nomes.length -1).slice(0, 90);
 
-// donatarias = new Array(multiplicador).fill(donatarias).reduce((obj, d) => {
-//     obj.push(...d);
-//     return obj
-// }, []).map((d, i) => d + ' ' + i);
 
 const BLHsNomeID = BLHs.map((b, i) => ({id: i, nome: b.nome}));
 const doadorasBLHs = linkPessoasBLH(doadoras);
