@@ -4,7 +4,7 @@ const fs = require('fs');
 const BLHs = require('./blhs');
 const nomes = require('./nomes');
 const estados = require('./estados');
-const multiplicador = 3;
+const multiplicador = 1;
 
 
 let doadoras = nomes.slice(0, (nomes.length -1));
