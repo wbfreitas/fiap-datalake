@@ -1,11 +1,11 @@
 const { Parser } = require('json2csv');
 const fs = require('fs');
 
-const BLHs = require('./blhs').sort(() => (Math.random() > .5) ? 1 : -1).slice(20);
+let BLHs = require('./blhs');
 const nomes = require('./nomes');
 const estados = require('./estados');
 
-
+BLHs = BLHs.sort(() => (Math.random() > .5) ? 1 : -1).slice(0, 20); 
 
 const doadoras = nomes.slice(0, (nomes.length -1)).slice(0, 90);
 const donatarias = nomes.slice(((nomes.length - 1) /2 ) + 1, nomes.length -1).slice(0, 90);
